@@ -4,12 +4,11 @@
     { config, pkgs, ... }:
     {
       devshells.c = {
-        commands = [
-          {
-            help = "print hello";
-            name = "hello";
-            command = "echo hello";
-          }
+        packages = [
+          pkgs.cmake # Build System Generator
+          pkgs.make # Build System
+          pkgs.gcc # Compiler
+          pkgs.llvmPackages_22.clang-tools # LSP, formatter, etc
         ];
       };
     };
