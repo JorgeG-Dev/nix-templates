@@ -4,7 +4,7 @@
     { config, pkgs, ... }:
     {
       devshells.c = {
-        command = [
+        commands = [
           {
             help = "print hello";
             name = "hello";
