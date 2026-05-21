@@ -17,6 +17,10 @@
           path = ./templates/rust;
           description = "Rust Devshell";
         };
+        zig = {
+          path = ./templates/zig;
+          description = "Zig Devshell";
+        };
         default = self.templates.c;
       };
     };
