@@ -9,6 +9,10 @@
           path = ./templates/c;
           description = "C Devshell";
         };
+        python = {
+          path = ./templates/python;
+          description = "Python Devshell";
+        };
         default = self.templates.c;
       };
     };
