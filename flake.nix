@@ -13,6 +13,10 @@
           path = ./templates/python;
           description = "Python Devshell";
         };
+        rust = {
+          path = ./templates/rust;
+          description = "Rust Devshell";
+        };
         default = self.templates.c;
       };
     };
