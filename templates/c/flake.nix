@@ -24,9 +24,15 @@
               gnumake
               gcc
 
+              # This is used for any dependencies on system libraries
+              pkg-config
+
               # Using the unwrapped version because we only need format, tidy,
-              #and LSP which uses a compile_commands.json
-              llvmPackages_22.clang-unwrapped
+              # and LSP which uses a compile_commands.json, not recommended
+              # to use the compiler
+              llvmPackages.clang-unwrapped
+
+              # Add any other system libraries needed here (ex: glib)
             ];
           };
         };
