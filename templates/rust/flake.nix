@@ -26,14 +26,17 @@
               rust-analyzer
               clippy
 
+              # Used for final linking of output
+              gcc
+
+              # This is used for any crates that have
+              # dependency on system libraries
+              pkg-config
+
               # Any crates that have a dependency on a system library,
               # add it here. Ex: glib
 
             ];
-
-            # This is used for any crates that have
-            # dependency on system libraries
-            nativeBuildInputs = with pkgs; [ pkg-config ];
 
             RUST_SRC_PATH = "${pkgs.rustPlatform.rustLibSrc}";
           };
