@@ -20,11 +20,7 @@
         {
           devShells.default = pkgs.mkShell {
             packages = with pkgs; [
-              rustc
-              cargo
-              rustfmt
-              rust-analyzer
-              clippy
+              rustup
 
               # Used for final linking of output
               gcc
@@ -38,7 +34,19 @@
 
             ];
 
-            RUST_SRC_PATH = "${pkgs.rustPlatform.rustLibSrc}";
+            # Sets the rust environment properly and installs the stable toolchain
+            # if not installed already
+            shellHook = ''
+              export RUSTUP_HOME="$PWD/.rustup"
+              export CARGO_HOME="$PWD/.cargo"
+              export PATH="$CARGO_HOME/bin:$PATH"
+
+              if [ ! -e "$CARGO_HOME/bin/rustc" ]; then
+                rustup toolchain install stable
+                rustup default stable
+                rustup component add rust-src rustfmt clippy rust-analyzer
+              fi
+            '';
           };
         };
     };

@@ -61,6 +61,13 @@ them in the `packages` in `flake.nix`. `gcc` is added as a package for the
 final linking of the rust crates being built. Instead of using the system's
 compiler, the devshell provides one to ensure consistency.
 
+Instead of providing individual components from the toolchain in the dev shell,
+`rustup` is provided instead and can be used to install the desired toolchain.
+In order to keep the system clean, toolchains are installed locally in the 
+project folder where the flake lives, almost like a Python virtual env. This
+allows user to use rustup as needed to set up toolchains without polluting their
+system.
+
 ### Python
 
 I like `uv`, it manages Python virtual environments and packages well. It's
